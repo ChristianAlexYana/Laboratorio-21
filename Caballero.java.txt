@@ -1,0 +1,36 @@
+public class Caballero extends Soldado {
+    private boolean montado;
+
+    public Caballero(String nombre, int nivelVida, int fila, int columna) {
+        super(nombre, 13, 7, nivelVida, fila, columna);
+        this.montado = true;
+    }
+
+    public void montar() {
+        if (!montado) {
+            montado = true;
+            System.out.println(getNombre() + " ha montado su caballo.");
+        }
+    }
+
+    public void desmontar() {
+        if (montado) {
+            montado = false;
+            System.out.println(getNombre() + " ha desmontado.");
+        }
+    }
+
+    @Override
+    public void accionEspecial() {
+        if (montado) {
+            System.out.println(getNombre() + " realiza una carga montada con daño extra.");
+        } else {
+            System.out.println(getNombre() + " realiza un ataque doble desmontado.");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " (Caballero)";
+    }
+}

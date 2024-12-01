@@ -1,0 +1,31 @@
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        Random random = new Random();
+
+        Mapa mapa = new Mapa("bosque", 10, 10);
+
+        // Generar soldados para el Ejército 1
+        for (int i = 0; i < 10; i++) {
+            int fila = random.nextInt(10);
+            int columna = random.nextInt(10);
+            Soldado soldado = new Espadachin("Espadachin" + i, 8 + random.nextInt(3), fila, columna, random.nextInt(50));
+            mapa.agregarSoldado(soldado, 1);
+        }
+
+        // Generar soldados para el Ejército 2
+        for (int i = 0; i < 10; i++) {
+            int fila = random.nextInt(10);
+            int columna = random.nextInt(10);
+            Soldado soldado = new Caballero("Caballero" + i, 10 + random.nextInt(3), fila, columna);
+            mapa.agregarSoldado(soldado, 2);
+        }
+
+        // Mostrar el mapa
+        mapa.mostrarMapa();
+
+        // Calcular estadísticas
+        mapa.calcularEstadisticas();
+    }
+}

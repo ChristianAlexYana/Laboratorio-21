@@ -1,0 +1,63 @@
+public abstract class Soldado {
+    private String nombre;
+    private int ataque;
+    private int defensa;
+    private int nivelVida;
+    private int fila;
+    private int columna;
+
+    public Soldado(String nombre, int ataque, int defensa, int nivelVida, int fila, int columna) {
+        this.nombre = nombre;
+        this.ataque = ataque;
+        this.defensa = defensa;
+        this.nivelVida = nivelVida;
+        this.fila = fila;
+        this.columna = columna;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getAtaque() {
+        return ataque;
+    }
+
+    public int getDefensa() {
+        return defensa;
+    }
+
+    public int getNivelVida() {
+        return nivelVida;
+    }
+
+    public void setNivelVida(int nivelVida) {
+        this.nivelVida = nivelVida;
+    }
+
+    public int getFila() {
+        return fila;
+    }
+
+    public int getColumna() {
+        return columna;
+    }
+
+    public void mover(int nuevaFila, int nuevaColumna) {
+        this.fila = nuevaFila;
+        this.columna = nuevaColumna;
+    }
+
+    public abstract void accionEspecial();
+
+    public void recibirDaño(int daño) {
+        int dañoReal = Math.max(0, daño - defensa);
+        nivelVida -= dañoReal;
+        System.out.println(nombre + " recibió " + dañoReal + " puntos de daño. Vida restante: " + nivelVida);
+    }
+
+    @Override
+    public String toString() {
+        return nombre + " - Vida: " + nivelVida + ", Ataque: " + ataque + ", Defensa: " + defensa;
+    }
+}
