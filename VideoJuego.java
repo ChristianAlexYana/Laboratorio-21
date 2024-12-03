@@ -142,3 +142,60 @@ class Lancero extends Soldado {
         return longitudLanza;
     }
 }
+class Ejercito {
+    private String reino;
+    private ArrayList<Soldado> soldados;
+
+    public Ejercito(String reino) {
+        this.reino = reino;
+        this.soldados = new ArrayList<>();
+    }
+
+    public void generarSoldados(int cantidad, int tipoEjercito) {
+        Random rand = new Random();
+        for (int i = 1; i <= cantidad; i++) {
+            Soldado soldado;
+            int tipoSoldado = rand.nextInt(4);
+            String nombre = tipoEjercito + ":";
+
+            switch (tipoSoldado) {
+                case 0:
+                    soldado = new Espadachin(nombre + "E" + i, rand.nextInt(3) + 8);
+                    break;
+                case 1:
+                    soldado = new Arquero(nombre + "A" + i, rand.nextInt(3) + 3);
+                    break;
+                case 2:
+                    soldado = new Caballero(nombre + "C" + i, rand.nextInt(3) + 10);
+                    break;
+                default:
+                    soldado = new Lancero(nombre + "L" + i, rand.nextInt(3) + 5);
+                    break;
+            }
+
+            soldados.add(soldado);
+        }
+    }
+
+    public void aplicarBeneficioPorTerritorio(String territorio) {
+        for (Soldado s : soldados) {
+            if ((reino.equals("Inglaterra") && territorio.equals("bosque")) ||
+                (reino.equals("Francia") && territorio.equals("campo abierto")) ||
+                (reino.equals("Castilla-Aragón") && territorio.equals("montaña")) ||
+                (reino.equals("Moros") && territorio.equals("desierto")) ||
+                (reino.equals("Sacro Imperio Romano Germánico") &&
+                    (territorio.equals("bosque") || territorio.equals("playa") || territorio.equals("campo abierto")))) {
+                s.incrementarVida(1);
+            }
+        }
+    }
+
+    public ArrayList<Soldado> getSoldados() {
+        return soldados;
+    }
+
+    public String getReino() {
+        return reino;
+    }
+}
+
