@@ -48,3 +48,17 @@ class Soldado {
         return posY;
     }
 }
+
+class Espadachin extends Soldado {
+    private int longitudEspada;
+
+    public Espadachin(String nombre, int vida) {
+        super(nombre, vida, 10, 8);
+        this.longitudEspada = new Random().nextInt(3) + 1;
+    }
+
+    public void crearMuroEscudos() {
+        System.out.println(getNombre() + " está creando un muro de escudos.");
+    }
+
+}
