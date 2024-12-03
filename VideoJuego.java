@@ -197,4 +197,5 @@ class Ejercito {
     public String getReino() {
         return reino;
     }
+}
 
