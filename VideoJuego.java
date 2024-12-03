@@ -1,9 +1,12 @@
+import java.util.*;
+
 class Soldado {
     private String nombre;
     private int vida;
     private int ataque;
     private int defensa;
-
+    private int posX;
+    private int posY;
 
     public Soldado(String nombre, int vida, int ataque, int defensa) {
         this.nombre = nombre;
@@ -32,5 +35,16 @@ class Soldado {
         return defensa;
     }
 
-  
+    public void setPosicion(int x, int y) {
+        this.posX = x;
+        this.posY = y;
+    }
+
+    public int getPosX() {
+        return posX;
+    }
+
+    public int getPosY() {
+        return posY;
+    }
 }
