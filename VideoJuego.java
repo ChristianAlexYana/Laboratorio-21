@@ -73,4 +73,16 @@ class Arquero extends Soldado {
         super(nombre, vida, 7, 3);
         this.flechas = new Random().nextInt(10) + 10;
     }
+    public void dispararFlecha() {
+        if (flechas > 0) {
+            flechas--;
+            System.out.println(getNombre() + " dispara una flecha. Flechas restantes: " + flechas);
+        } else {
+            System.out.println(getNombre() + " no tiene flechas.");
+        }
+    }
+
+    public int getFlechas() {
+        return flechas;
+    }
 }
