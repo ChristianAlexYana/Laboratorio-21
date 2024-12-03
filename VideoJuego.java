@@ -97,3 +97,16 @@ class Caballero extends Soldado {
         return super.toString() + ", Arma: " + armaActual + ", Montado: " + montado;
     }
 }
+class Lancero extends Soldado {
+    private int longitudLanza;
+
+    public Lancero(String nombre, int puntosVida, int fila, int columna, int longitudLanza) {
+        super(nombre, puntosVida, 5, 10, fila, columna);
+        this.longitudLanza = longitudLanza;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Longitud de lanza: " + longitudLanza;
+    }
+}
