@@ -65,3 +65,12 @@ class Espadachin extends Soldado {
     }
 
 }
+
+class Arquero extends Soldado {
+    private int flechas;
+
+    public Arquero(String nombre, int vida) {
+        super(nombre, vida, 7, 3);
+        this.flechas = new Random().nextInt(10) + 10;
+    }
+}
