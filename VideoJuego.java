@@ -110,3 +110,29 @@ class Lancero extends Soldado {
         return super.toString() + ", Longitud de lanza: " + longitudLanza;
     }
 }
+class Mapa {
+    private String[][] tablero;
+    private String tipoTerritorio;
+
+    public Mapa(int size, String tipoTerritorio) {
+        this.tablero = new String[size][size];
+        this.tipoTerritorio = tipoTerritorio;
+    }
+
+    public String getTipoTerritorio() {
+        return tipoTerritorio;
+    }
+
+    public void mostrarTablero() {
+        for (String[] fila : tablero) {
+            for (String celda : fila) {
+                System.out.print((celda == null ? "." : celda) + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public void colocarSoldado(Soldado soldado) {
+        tablero[soldado.getFila()][soldado.getColumna()] = soldado.getNombre();
+    }
+}
