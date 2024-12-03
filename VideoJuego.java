@@ -124,5 +124,21 @@ class Caballero extends Soldado {
         int golpes = montado ? 3 : 2;
         System.out.println(getNombre() + " realiza una envestida con " + golpes + " golpes.");
     }
+}
 
+class Lancero extends Soldado {
+    private int longitudLanza;
+
+    public Lancero(String nombre, int vida) {
+        super(nombre, vida, 5, 10);
+        this.longitudLanza = new Random().nextInt(3) + 2;
+    }
+
+    public void schiltrom() {
+        System.out.println(getNombre() + " está en formación schiltrom.");
+    }
+
+    public int getLongitudLanza() {
+        return longitudLanza;
+    }
 }
