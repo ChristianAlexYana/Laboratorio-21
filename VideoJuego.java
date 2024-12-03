@@ -96,5 +96,33 @@ class Caballero extends Soldado {
         this.arma = "espada";
         this.montado = false;
     }
+    public void montar() {
+        if (!montado) {
+            montado = true;
+            arma = "lanza";
+            System.out.println(getNombre() + " monta y cambia su arma a " + arma + ".");
+        }
+    }
+
+    public void desmontar() {
+        if (montado) {
+            montado = false;
+            arma = "espada";
+            System.out.println(getNombre() + " desmonta y cambia su arma a " + arma + ".");
+        }
+    }
+
+    public String getArma() {
+        return arma;
+    }
+
+    public boolean estaMontado() {
+        return montado;
+    }
+
+    public void envestir() {
+        int golpes = montado ? 3 : 2;
+        System.out.println(getNombre() + " realiza una envestida con " + golpes + " golpes.");
+    }
 
 }
