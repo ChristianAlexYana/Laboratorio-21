@@ -51,3 +51,16 @@ abstract class Soldado {
                ", Posición: [" + fila + ", " + columna + "]";
     }
 }
+class Espadachin extends Soldado {
+    private int longitudEspada;
+
+    public Espadachin(String nombre, int puntosVida, int fila, int columna, int longitudEspada) {
+        super(nombre, puntosVida, 10, 8, fila, columna);
+        this.longitudEspada = longitudEspada;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Longitud de espada: " + longitudEspada;
+    }
+}
