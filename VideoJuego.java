@@ -64,3 +64,36 @@ class Espadachin extends Soldado {
         return super.toString() + ", Longitud de espada: " + longitudEspada;
     }
 }
+class Caballero extends Soldado {
+    private String armaActual;
+    private boolean montado;
+
+    public Caballero(String nombre, int puntosVida, int fila, int columna) {
+        super(nombre, puntosVida, 13, 7, fila, columna);
+        this.armaActual = "Espada";
+        this.montado = true;
+    }
+
+    public void alternarArma() {
+        this.armaActual = this.armaActual.equals("Espada") ? "Lanza" : "Espada";
+    }
+
+    public void desmontar() {
+        if (montado) {
+            montado = false;
+            armaActual = "Espada";
+        }
+    }
+
+    public void montar() {
+        if (!montado) {
+            montado = true;
+            armaActual = "Lanza";
+        }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Arma: " + armaActual + ", Montado: " + montado;
+    }
+}
