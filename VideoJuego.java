@@ -86,3 +86,15 @@ class Arquero extends Soldado {
         return flechas;
     }
 }
+
+class Caballero extends Soldado {
+    private String arma;
+    private boolean montado;
+
+    public Caballero(String nombre, int vida) {
+        super(nombre, vida, 13, 7);
+        this.arma = "espada";
+        this.montado = false;
+    }
+
+}
