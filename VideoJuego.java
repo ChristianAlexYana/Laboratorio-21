@@ -157,4 +157,22 @@ class Ejercito {
         return nombreReino;
     }
 }
+public class VideoJuego {
+    public static void main(String[] args) {
+        Mapa mapa = new Mapa(10, "bosque");
+        Ejercito ejercito1 = new Ejercito("Inglaterra");
+        Ejercito ejercito2 = new Ejercito("Francia");
 
+        Random random = new Random();
+
+        // Crear y posicionar soldados para cada ejército
+        for (int i = 0; i < 5; i++) {
+            int fila = random.nextInt(10);
+            int columna = random.nextInt(10);
+            ejercito1.agregarSoldado(new Espadachin("Espadachin" + i, 9, fila, columna, 5));
+            mapa.colocarSoldado(ejercito1.getSoldados().get(i));
+        }
+
+        mapa.mostrarTablero();
+    }
+}
