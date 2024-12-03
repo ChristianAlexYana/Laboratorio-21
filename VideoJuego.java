@@ -60,5 +60,8 @@ class Espadachin extends Soldado {
     public void crearMuroEscudos() {
         System.out.println(getNombre() + " está creando un muro de escudos.");
     }
+    public int getLongitudEspada() {
+        return longitudEspada;
+    }
 
 }
