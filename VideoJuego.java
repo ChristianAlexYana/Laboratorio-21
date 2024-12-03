@@ -136,3 +136,25 @@ class Mapa {
         tablero[soldado.getFila()][soldado.getColumna()] = soldado.getNombre();
     }
 }
+class Ejercito {
+    private String nombreReino;
+    private List<Soldado> soldados;
+
+    public Ejercito(String nombreReino) {
+        this.nombreReino = nombreReino;
+        this.soldados = new ArrayList<>();
+    }
+
+    public void agregarSoldado(Soldado soldado) {
+        soldados.add(soldado);
+    }
+
+    public List<Soldado> getSoldados() {
+        return soldados;
+    }
+
+    public String getNombreReino() {
+        return nombreReino;
+    }
+}
+
