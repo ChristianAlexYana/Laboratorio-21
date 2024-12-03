@@ -199,3 +199,51 @@ class Ejercito {
     }
 }
 
+class Mapa {
+    private String[][] tablero = new String[10][10];
+    private String territorio;
+    private Random random = new Random();
+
+    public Mapa() {
+        String[] territorios = {"bosque", "campo abierto", "montaña", "desierto", "playa"};
+        this.territorio = territorios[random.nextInt(territorios.length)];
+        inicializarTablero();
+    }
+
+    private void inicializarTablero() {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                tablero[i][j] = "__";
+            }
+        }
+    }
+
+    public String getTerritorio() {
+        return territorio;
+    }
+
+    public void posicionarSoldados(Ejercito ejercito, boolean usarArrayList) {
+        int soldadosPosicionados = 0;
+        for (Soldado soldado : ejercito.getSoldados()) {
+            int x, y;
+            do {
+                x = random.nextInt(10);
+                y = random.nextInt(10);
+            } while (!tablero[x][y].equals("__"));
+
+            tablero[x][y] = soldado.getNombre();
+            soldado.setPosicion(x, y);
+            soldadosPosicionados++;
+        }
+    }
+
+    public void mostrarTablero() {
+        System.out.println("Estado del tablero:");
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                System.out.printf("%-6s", tablero[i][j]);
+            }
+            System.out.println();
+        }
+    }
+}
